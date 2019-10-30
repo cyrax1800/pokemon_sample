@@ -1,0 +1,31 @@
+apply from: "$rootDir/common.gradle"
+
+dependencies {
+    implementation project(Modules.libCore)
+    implementation project(Modules.libApi)
+    implementation project(Modules.dataSrc)
+
+    // Android
+    implementation Android.appCompat
+    implementation Android.recyclerView
+
+    implementation Retrofit.retrofit
+
+    // Coroutines
+    implementation Coroutines.core
+    implementation Coroutines.android
+
+    implementation Jetpack.ktx
+    implementation Jetpack.lifecycle
+    kapt Jetpack.lifecycleCompiler
+
+    // Fast Adapter
+    implementation FastAdapter.core
+    implementation FastAdapter.scroll
+    implementation FastAdapter.ui
+
+    implementation Misc.deeplink
+    kapt Misc.deeplinkProcessor
+
+    implementation Misc.shimmer
+}

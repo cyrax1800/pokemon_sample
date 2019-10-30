@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/materialize_baseline_grid_x2">
+
+    <TextView
+            android:id="@+id/tvName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/materialize_baseline_grid"
+            android:text="Abilities"
+            android:textColor="@color/md_grey_850"
+            android:textSize="@dimen/materialize_typography_headline"
+            android:textStyle="bold" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/sflEffect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:shimmer_auto_start="false"
+            app:shimmer_base_alpha="1"
+            app:shimmer_colored="false"
+            app:shimmer_highlight_alpha="0.5">
+
+        <TextView
+                android:id="@+id/tvEffect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/materialize_baseline_grid_small"
+                android:layout_marginLeft="@dimen/materialize_baseline_grid_small"
+                android:textSize="@dimen/materialize_typography_body1"
+                tools:text="Pokemon Effect" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/materialize_baseline_grid_small"
+            android:layout_marginLeft="@dimen/materialize_baseline_grid_small"
+            android:layout_marginTop="@dimen/materialize_baseline_grid"
+            android:layout_marginBottom="@dimen/materialize_baseline_grid_small"
+            android:text="Short Effect"
+            android:textColor="@color/md_grey_850"
+            android:textSize="@dimen/materialize_typography_subheading"
+            android:textStyle="bold" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/sflShortEffect"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:shimmer_auto_start="false"
+            app:shimmer_base_alpha="1"
+            app:shimmer_colored="false"
+            app:shimmer_highlight_alpha="0.5">
+
+        <TextView
+                android:id="@+id/tvShortEffect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/materialize_baseline_grid"
+                android:layout_marginLeft="@dimen/materialize_baseline_grid"
+                android:textSize="@dimen/materialize_typography_caption"
+                tools:text="Pokemon Effect" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/materialize_baseline_grid_small"
+            android:layout_marginLeft="@dimen/materialize_baseline_grid_small"
+            android:layout_marginTop="@dimen/materialize_baseline_grid"
+            android:layout_marginBottom="@dimen/materialize_baseline_grid_small"
+            android:text="Flavor"
+            android:textColor="@color/md_grey_850"
+            android:textSize="@dimen/materialize_typography_subheading"
+            android:textStyle="bold" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+            android:id="@+id/sflFlavor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:shimmer_auto_start="false"
+            app:shimmer_base_alpha="1"
+            app:shimmer_colored="false"
+            app:shimmer_highlight_alpha="0.5">
+
+        <TextView
+                android:id="@+id/tvFlavor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/materialize_baseline_grid"
+                android:layout_marginLeft="@dimen/materialize_baseline_grid"
+                android:textSize="@dimen/materialize_typography_caption"
+                tools:text="Pokemon Flavor" />
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+</LinearLayout>

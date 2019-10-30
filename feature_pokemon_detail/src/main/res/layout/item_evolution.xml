@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <View
+            android:id="@+id/viewLeft"
+            android:layout_width="@dimen/materialize_baseline_grid_x2"
+            android:layout_height="4dp"
+            android:layout_marginTop="@dimen/materialize_baseline_grid_x3"
+            android:background="@color/materialize_accent" />
+
+    <LinearLayout
+            android:id="@+id/llContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/materialize_baseline_grid_small"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivSprite"
+                android:layout_width="@dimen/materialize_baseline_grid_x6"
+                android:layout_height="@dimen/materialize_baseline_grid_x6"
+                android:padding="@dimen/materialize_baseline_grid_small"
+                tools:src="@color/md_grey_850" />
+
+        <TextView
+                android:id="@+id/tvName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/materialize_baseline_grid_small"
+                android:gravity="center"
+                android:padding="@dimen/materialize_baseline_grid_small"
+                tools:text="bulbasaur" />
+
+    </LinearLayout>
+
+    <View
+            android:id="@+id/viewRight"
+            android:layout_width="@dimen/materialize_baseline_grid_x2"
+            android:layout_height="4dp"
+            android:layout_marginTop="@dimen/materialize_baseline_grid_x3"
+            android:background="@color/materialize_accent" />
+
+</LinearLayout>

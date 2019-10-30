@@ -1,0 +1,63 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion Releases.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion Releases.minSdkVersion
+        targetSdkVersion Releases.targetSdkVersion
+        versionCode Releases.versionCode
+        versionName Releases.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
+        release {
+            minifyEnabled false
+            testCoverageEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation Dependencies.kotlin
+
+    //di
+    implementation Dagger.dagger
+    implementation Dagger.android
+    kapt Dagger.compiler
+    kapt Dagger.processor
+
+    //testing
+    implementation Testing.espressoIdleResources
+
+    testImplementation Testing.jUnit
+    testImplementation Testing.androidX
+    testImplementation Testing.mockk
+    testImplementation Coroutines.core
+    testImplementation Coroutines.android
+    testImplementation Coroutines.test
+    testImplementation Retrofit.mockWebServer
+    androidTestImplementation Testing.testRunner
+    androidTestImplementation Testing.espresso
+    androidTestImplementation Testing.espressoContrib
+    androidTestImplementation Testing.espressoIntent
+    androidTestImplementation Testing.runner
+    androidTestImplementation Testing.rules
+    androidTestImplementation Testing.core
+    androidTestImplementation Testing.espressoIdleResources
+    androidTestImplementation Testing.extJunit
+    androidTestImplementation Testing.extTruth
+}

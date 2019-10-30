@@ -1,0 +1,15 @@
+apply from: "$rootDir/common.gradle"
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation Coroutines.android
+
+    implementation Retrofit.retrofit
+    implementation Retrofit.gsonConverter
+    implementation Retrofit.coroutinesAdapter
+    implementation Retrofit.okHttpLogging
+
+    implementation Misc.stetho
+    implementation Misc.stethoOkHttp
+}

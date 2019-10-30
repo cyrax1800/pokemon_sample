@@ -1,0 +1,7 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        package="com.michael.feature_pokemon">
+
+    <application android:theme="@style/AppTheme">
+        <activity android:name=".view.PokemonActivity" />
+    </application>
+</manifest>

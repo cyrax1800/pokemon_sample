@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/data_source" />
+            <option value="$PROJECT_DIR$/feature_pokemon" />
+            <option value="$PROJECT_DIR$/feature_pokemon_abilities" />
+            <option value="$PROJECT_DIR$/feature_pokemon_detail" />
+            <option value="$PROJECT_DIR$/lib_api" />
+            <option value="$PROJECT_DIR$/lib_core" />
+            <option value="$PROJECT_DIR$/lib_mvi_core" />
+            <option value="$PROJECT_DIR$/lib_mvp_core" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+        <option name="testRunner" value="PLATFORM" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

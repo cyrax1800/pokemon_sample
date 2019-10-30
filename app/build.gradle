@@ -1,0 +1,63 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion Releases.compileSdkVersion
+
+    defaultConfig {
+        applicationId ApplicationId.id
+        minSdkVersion Releases.minSdkVersion
+        targetSdkVersion Releases.targetSdkVersion
+        versionCode Releases.versionCode
+        versionName Releases.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+    buildTypes {
+        debug {
+            testCoverageEnabled true
+        }
+        release {
+            testCoverageEnabled false
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation project(Modules.libApi)
+    implementation project(Modules.libCore)
+
+    implementation project(Modules.featurePokemon)
+    implementation project(Modules.featurePokemonDetail)
+    implementation project(Modules.featurePokemonAbilities)
+
+    implementation Android.multiDex
+
+    implementation Misc.deeplink
+    kapt Misc.deeplinkProcessor
+
+    testImplementation Testing.jUnit
+    testImplementation Testing.mockito
+    testImplementation Testing.mockKtRunner
+    testImplementation Testing.androidX
+    testImplementation Testing.mockk
+    testImplementation Coroutines.core
+    testImplementation Coroutines.android
+    testImplementation Coroutines.test
+    testImplementation Retrofit.mockWebServer
+    androidTestImplementation Testing.testRunner
+    androidTestImplementation Testing.espresso
+    androidTestImplementation Testing.espressoContrib
+    androidTestImplementation Testing.runner
+    androidTestImplementation Testing.rules
+    androidTestImplementation Testing.core
+    androidTestImplementation Testing.espressoIdleResources
+    androidTestImplementation Testing.extJunit
+    androidTestImplementation Testing.extTruth
+}
+
+apply from: "$rootDir/jacoco.gradle"

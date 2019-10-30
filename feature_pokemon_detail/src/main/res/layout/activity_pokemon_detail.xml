@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/materialize_baseline_grid_x2"
+                android:paddingRight="@dimen/materialize_baseline_grid_x2">
+
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/materialize_baseline_grid_x2"
+                    android:orientation="horizontal">
+
+                <ImageView
+                        android:id="@+id/ivSprite"
+                        android:layout_width="160dp"
+                        android:layout_height="160dp"
+                        android:layout_marginEnd="@dimen/materialize_baseline_grid"
+                        android:layout_marginRight="@dimen/materialize_baseline_grid"
+                        android:scaleType="center"
+                        tools:src="@color/md_grey_850" />
+
+                <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    <TextView
+                            android:id="@+id/tvTitle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/materialize_baseline_grid_small"
+                            android:textColor="@color/md_grey_850"
+                            android:textSize="@dimen/materialize_typography_title"
+                            android:textStyle="bold"
+                            tools:text="Title is Here" />
+
+                    <TextView
+                            android:id="@+id/tvHeight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/tvTitle"
+                            android:layout_marginBottom="@dimen/materialize_baseline_grid_small"
+                            android:textSize="@dimen/materialize_typography_body1"
+                            tools:text="@string/pokemon_detail_height" />
+
+                    <TextView
+                            android:id="@+id/tvWeight"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvTitle"
+                            android:layout_marginStart="@dimen/materialize_baseline_grid"
+                            android:layout_marginLeft="@dimen/materialize_baseline_grid"
+                            android:layout_marginBottom="@dimen/materialize_baseline_grid_small"
+                            android:layout_toEndOf="@id/tvHeight"
+                            android:layout_toRightOf="@id/tvHeight"
+                            android:textSize="@dimen/materialize_typography_body1"
+                            tools:text="@string/pokemon_detail_weight" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvType"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvHeight"
+                            android:layout_marginBottom="@dimen/materialize_baseline_grid_small"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager" />
+
+                    <Button
+                            android:id="@+id/btnAbilities"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/rvType"
+                            android:layout_marginTop="@dimen/materialize_baseline_grid_x2"
+                            android:text="Abilities"
+                            />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/materialize_baseline_grid_x2"
+                    android:text="Stats"
+                    android:textColor="@color/md_grey_850"
+                    android:textSize="@dimen/materialize_typography_headline"
+                    android:textStyle="bold" />
+
+            <TableLayout
+                    android:id="@+id/tableLayout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/materialize_baseline_grid_small"
+                    android:background="@drawable/table_border">
+
+                <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/table_border"
+                            android:padding="@dimen/materialize_baseline_grid_small"
+                            android:text="Name"
+                            android:textColor="@color/md_grey_850"
+                            android:textSize="@dimen/materialize_typography_subheading"
+                            android:textStyle="bold" />
+
+                    <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/table_border"
+                            android:padding="@dimen/materialize_baseline_grid_small"
+                            android:text="Value"
+                            android:textColor="@color/md_grey_850"
+                            android:textSize="@dimen/materialize_typography_subheading"
+                            android:textStyle="bold" />
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/materialize_baseline_grid_x2"
+                    android:text="Species Details"
+                    android:textColor="@color/md_grey_850"
+                    android:textSize="@dimen/materialize_typography_headline"
+                    android:textStyle="bold" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmerDetails"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:shimmer_auto_start="false"
+                    app:shimmer_base_alpha="1"
+                    app:shimmer_colored="false"
+                    app:shimmer_highlight_alpha="0.5">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    <TextView
+                            android:id="@+id/tvGenera"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/materialize_baseline_grid_small"
+                            android:background="@color/md_grey_500"
+                            android:textColor="@color/md_grey_850"
+                            android:textSize="@dimen/materialize_typography_body1"
+                            tools:text="Description" />
+
+                    <TextView
+                            android:id="@+id/tvFlavor"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/materialize_baseline_grid"
+                            android:layout_marginTop="@dimen/materialize_baseline_grid_small"
+                            android:layout_marginRight="@dimen/materialize_baseline_grid"
+                            android:background="@color/md_grey_500"
+                            android:textColor="@color/md_grey_500"
+                            android:textSize="@dimen/materialize_typography_caption"
+                            android:textStyle="italic"
+                            tools:text="Description" />
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/materialize_baseline_grid_x2"
+                    android:text="Evolution Chain"
+                    android:textColor="@color/md_grey_850"
+                    android:textSize="@dimen/materialize_typography_headline"
+                    android:textStyle="bold" />
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                    android:id="@+id/shimmerEvolution"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:shimmer_auto_start="false">
+
+                <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/materialize_baseline_grid_small"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="@dimen/materialize_baseline_grid_x6"
+                                android:layout_height="@dimen/materialize_baseline_grid_x6"
+                                android:background="@color/md_grey_500"
+                                android:padding="@dimen/materialize_baseline_grid_small" />
+
+                        <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/materialize_baseline_grid_small"
+                                android:background="@color/md_grey_500"
+                                android:gravity="center"
+                                android:padding="@dimen/materialize_baseline_grid_small" />
+
+                    </LinearLayout>
+
+                    <View
+                            android:layout_width="@dimen/materialize_baseline_grid_x2"
+                            android:layout_height="4dp"
+                            android:layout_marginTop="@dimen/materialize_baseline_grid_x3"
+                            android:background="@color/md_grey_500" />
+
+                    <View
+                            android:layout_width="@dimen/materialize_baseline_grid_x2"
+                            android:layout_height="4dp"
+                            android:layout_marginTop="@dimen/materialize_baseline_grid_x3"
+                            android:background="@color/md_grey_500" />
+
+                    <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/materialize_baseline_grid_small"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="@dimen/materialize_baseline_grid_x6"
+                                android:layout_height="@dimen/materialize_baseline_grid_x6"
+                                android:background="@color/md_grey_500"
+                                android:padding="@dimen/materialize_baseline_grid_small" />
+
+                        <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/materialize_baseline_grid_small"
+                                android:background="@color/md_grey_500"
+                                android:gravity="center"
+                                android:padding="@dimen/materialize_baseline_grid_small" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvEvolutionChain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/materialize_baseline_grid_small"
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        </LinearLayout>
+    </ScrollView>
+
+    <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:minWidth="50dp"
+            android:minHeight="50dp" />
+</FrameLayout>

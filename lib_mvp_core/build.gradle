@@ -1,0 +1,14 @@
+apply from: "$rootDir/common.gradle"
+
+dependencies {
+    api project(Modules.libCore)
+
+    // Android
+    implementation Android.appCompat
+    implementation Jetpack.ktx
+
+    // Coroutines
+    implementation Coroutines.core
+    implementation Jetpack.lifecycle
+    kapt Jetpack.lifecycleCompiler
+}
