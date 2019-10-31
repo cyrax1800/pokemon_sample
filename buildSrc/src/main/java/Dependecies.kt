@@ -52,6 +52,7 @@ object Version {
     const val stetho = "1.5.1"
     const val fastAdapter = "4.1.0"
     const val facebookShimmer = "0.5.0"
+    const val gradleDependencyGraph = "0.6.0-SNAPSHOT"
 
     //testing
     const val jUnit = "4.12"
@@ -151,4 +152,5 @@ object Misc {
     val stetho = "com.facebook.stetho:stetho:${Version.stetho}"
     val stethoOkHttp = "com.facebook.stetho:stetho-okhttp3:${Version.stetho}"
     val shimmer = "com.facebook.shimmer:shimmer:${Version.facebookShimmer}"
+    val gradleDependencyGraph = "com.vanniktech:gradle-dependency-graph-generator-plugin:${Version.gradleDependencyGraph}"
 }

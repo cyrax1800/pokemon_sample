@@ -29,7 +29,6 @@ android {
 
 dependencies {
     implementation project(Modules.libApi)
-    implementation project(Modules.libCore)
 
     implementation project(Modules.featurePokemon)
     implementation project(Modules.featurePokemonDetail)
