@@ -1,6 +1,6 @@
 package com.michael.feature_pokemon_detail.di
 
-import com.michael.api.Api
+import com.michael.data_source.di.DataModule
 import com.michael.data_source.di.DataScope
 import com.michael.data_source.repository.EvolutionRepository
 import com.michael.data_source.repository.EvolutionRepositoryImpl
@@ -16,20 +16,8 @@ import com.michael.lib_core.thread.SchedulerProvider
 import dagger.Module
 import dagger.Provides
 
-@Module
+@Module(includes = [DataModule::class])
 class PokemonDetailModule(private val view: PokemonDetailContract.View) {
-
-    @DataScope
-    @Provides
-    fun providePokemonService(): PokemonService {
-        return Api.service(PokemonService::class)
-    }
-
-    @DataScope
-    @Provides
-    fun provideEvolutionService(): EvolutionService {
-        return Api.service(EvolutionService::class)
-    }
 
     @PokemonDetailScope
     @Provides

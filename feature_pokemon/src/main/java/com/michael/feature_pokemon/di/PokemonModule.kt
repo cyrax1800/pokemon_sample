@@ -1,6 +1,6 @@
 package com.michael.feature_pokemon.di
 
-import com.michael.api.Api
+import com.michael.data_source.di.DataModule
 import com.michael.feature_pokemon.domain.PokemonUseCase
 import com.michael.feature_pokemon.mvi.PokemonState
 import com.michael.data_source.di.DataScope
@@ -12,14 +12,8 @@ import com.michael.lib_core.thread.SchedulerProvider
 import dagger.Module
 import dagger.Provides
 
-@Module
+@Module(includes = [DataModule::class])
 class PokemonModule {
-
-    @DataScope
-    @Provides
-    fun providePokemonService(): PokemonService {
-        return Api.service(PokemonService::class)
-    }
 
     @PokemonScope
     @Provides
