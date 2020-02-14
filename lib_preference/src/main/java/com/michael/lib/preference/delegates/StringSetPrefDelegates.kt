@@ -5,18 +5,18 @@ import android.content.SharedPreferences
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
-class IntPrefDelegates(
+class StringSetPrefDelegates(
     private val pref: SharedPreferences,
-    private val defaultValue: String,
+    private val defaultValue: MutableSet<String>,
     private val commit: Boolean
-) : ReadWriteProperty<Any, String> {
+) : ReadWriteProperty<Any, MutableSet<String>> {
 
-    override fun getValue(thisRef: Any, property: KProperty<*>) =
-        pref.getString(property.name, defaultValue) ?: defaultValue
+    override fun getValue(thisRef: Any, property: KProperty<*>): MutableSet<String> =
+        pref.getStringSet(property.name, defaultValue) ?: defaultValue
 
     @SuppressLint("ApplySharedPref")
-    override fun setValue(thisRef: Any, property: KProperty<*>, value: String) {
-        val editor = pref.edit().putString(property.name, value)
+    override fun setValue(thisRef: Any, property: KProperty<*>, value: MutableSet<String>) {
+        val editor = pref.edit().putStringSet(property.name, value)
         if (commit) editor.commit()
         else editor.apply()
     }

@@ -1,1 +1,1 @@
-include ':app', ':lib_api', ':lib_mvi_core', ':lib_core', ':data_source', ':feature_pokemon', ':feature_pokemon_detail', ':lib_mvp_core', ':feature_pokemon_abilities'
+include ':app', ':lib_api', ':lib_mvi_core', ':lib_core', ':data_source', ':feature_pokemon', ':feature_pokemon_detail', ':lib_mvp_core', ':feature_pokemon_abilities', ':lib_preference'

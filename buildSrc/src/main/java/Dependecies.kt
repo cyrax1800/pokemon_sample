@@ -14,7 +14,7 @@ object Releases {
 
 object Version {
     //common
-    const val kotlin = "1.3.50"
+    const val kotlin = "1.3.61"
     const val gradle = "3.5.1"
     const val material = "1.1.0-alpha05"
     const val multiDex = "2.0.1"

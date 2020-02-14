@@ -4,6 +4,7 @@ object Modules {
     const val libMviCore = ":lib_mvi_core"
     const val libMvpCore = ":lib_mvp_core"
     const val libCore = ":lib_core"
+    const val libPreference = ":lib_preference"
     const val libApi = ":lib_api"
 
     const val dataSrc = ":data_source"
