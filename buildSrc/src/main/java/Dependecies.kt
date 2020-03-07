@@ -49,7 +49,6 @@ object Version {
 
     //misc
     const val deeplink = "4.1.0"
-    const val stetho = "1.5.1"
     const val fastAdapter = "4.1.0"
     const val facebookShimmer = "0.5.0"
     const val gradleDependencyGraph = "0.6.0-SNAPSHOT"
@@ -64,6 +63,12 @@ object Version {
     const val rules = "1.1.0"
     const val ext = "1.0.0"
     const val jacoco = "0.8.3"
+
+    //debugging
+    const val stetho = "1.5.1"
+    const val fbFlipper = "0.32.2"
+    const val soLoader = "0.8.2"
+    const val leakCanary = "1.6.1"
 }
 
 object Android {
@@ -95,7 +100,8 @@ object Retrofit {
     val scalarConverter = "com.squareup.retrofit2:converter-scalars:${Version.retrofit}"
     val rxAdapter = "com.squareup.retrofit2:adapter-rxjava2:${Version.rxretrofit}"
     val okHttpLogging = "com.squareup.okhttp3:logging-interceptor:${Version.okhttpLogging}"
-    val coroutinesAdapter = "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Version.coroutinesAdapter}"
+    val coroutinesAdapter =
+        "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Version.coroutinesAdapter}"
     val mock = "com.squareup.retrofit2:retrofit-mock:${Version.retrofit}"
 }
 
@@ -124,7 +130,8 @@ object Testing {
     val espresso = "androidx.test.espresso:espresso-core:${Version.espresso}"
     val coreTesting = "androidx.arch.core:core-testing:${Version.archLifecycle}"
     val espressoContrib = "androidx.test.espresso:espresso-contrib:${Version.espresso}"
-    val espressoIdleResources = "androidx.test.espresso:espresso-idling-resource:${Version.espresso}"
+    val espressoIdleResources =
+        "androidx.test.espresso:espresso-idling-resource:${Version.espresso}"
     val espressoIntent = "androidx.test.espresso:espresso-intents:${Version.espresso}"
     val mockito = "org.mockito:mockito-inline:${Version.mockito}"
     val mockKtRunner = "de.jodamob.kotlin:kotlin-runner-junit4:${Version.mockTestRunner}"
@@ -146,11 +153,22 @@ object FastAdapter {
     val ui = "com.mikepenz:fastadapter-extensions-ui:${Version.fastAdapter}"
 }
 
+object Debugging {
+    val fbFlipper = "com.facebook.flipper:flipper:${Version.fbFlipper}"
+    val fbFlipperNetwork = "com.facebook.flipper:flipper-network-plugin:${Version.fbFlipper}"
+    val fbFlipperNoop = "com.facebook.flipper:flipper-noop:${Version.fbFlipper}"
+    val soLoader = "com.facebook.soloader:soloader:${Version.soLoader}"
+    val fbFlipperLeakCanary = "com.facebook.flipper:flipper-leakcanary-plugin:${Version.fbFlipper}"
+    val leakCanary = "com.squareup.leakcanary:leakcanary-android:${Version.leakCanary}"
+    val leakCanaryNoop = "com.squareup.leakcanary:leakcanary-android-no-op:${Version.leakCanary}"
+    val stetho = "com.facebook.stetho:stetho:${Version.stetho}"
+    val stethoOkHttp = "com.facebook.stetho:stetho-okhttp3:${Version.stetho}"
+}
+
 object Misc {
     val deeplink = "com.airbnb:deeplinkdispatch:${Version.deeplink}"
     val deeplinkProcessor = "com.airbnb:deeplinkdispatch-processor:${Version.deeplink}"
-    val stetho = "com.facebook.stetho:stetho:${Version.stetho}"
-    val stethoOkHttp = "com.facebook.stetho:stetho-okhttp3:${Version.stetho}"
     val shimmer = "com.facebook.shimmer:shimmer:${Version.facebookShimmer}"
-    val gradleDependencyGraph = "com.vanniktech:gradle-dependency-graph-generator-plugin:${Version.gradleDependencyGraph}"
+    val gradleDependencyGraph =
+        "com.vanniktech:gradle-dependency-graph-generator-plugin:${Version.gradleDependencyGraph}"
 }
