@@ -4,6 +4,7 @@ dependencies {
     implementation project(Modules.libCore)
     implementation project(Modules.libApi)
     implementation project(Modules.libMviCore)
+    implementation project(Modules.libPreference)
     implementation project(Modules.dataSrc)
 
     // Android

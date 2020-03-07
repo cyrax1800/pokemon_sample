@@ -34,6 +34,9 @@ class PokemonMVIViewModel @Inject constructor(
                 state.value = reducer(PokemonMVIEffect.Refresh, currentState)
                 getPokemonList(0)
             }
+            is PokemonMVIActions.Clicked -> {
+                useCase.updatePokemonName(actions.pokemon)
+            }
         }
     }
 

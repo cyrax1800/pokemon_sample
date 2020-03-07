@@ -164,6 +164,22 @@ class PokemonMVIViewModelTest {
         Assert.assertEquals(listValue.last().isPtrRefresh, false)
     }
 
+    @Test
+    fun `dispatch Clicked should have trigger updatePokemonName`() {
+        // Given
+        every { useCase.updatePokemonName(any()) } returns Unit
+
+        // When
+        viewModel.dispatch(PokemonMVIActions.Clicked(resources.first()))
+
+        // Then
+        verify(exactly = 1) {
+            useCase.updatePokemonName(match {
+                it == resources.first()
+            })
+        }
+    }
+
     @After
     fun tearDown() {
         Dispatchers.resetMain()

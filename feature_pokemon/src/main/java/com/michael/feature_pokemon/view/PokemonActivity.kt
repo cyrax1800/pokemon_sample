@@ -86,6 +86,7 @@ class PokemonActivity : BaseMVIActivity<PokemonState>() {
         adapter.addAdapter(1, footerAdapter)
         adapter.onClickListener = { view, _, item, _ ->
             if (item is PokemonItem) {
+                viewModel.dispatch(PokemonMVIActions.Clicked(item.namedApiResource))
                 view?.context?.startActivity(
                     Intent(
                         Intent.ACTION_VIEW,
@@ -124,7 +125,7 @@ class PokemonActivity : BaseMVIActivity<PokemonState>() {
 
     override fun initInjector() {
         DaggerPokemonComponent.builder()
-            .pokemonModule(PokemonModule())
+            .pokemonModule(PokemonModule(this))
             .build()
             .inject(this)
     }
