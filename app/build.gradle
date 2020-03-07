@@ -4,6 +4,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
+    buildToolsVersion Releases.buildToolsVersion
     compileSdkVersion Releases.compileSdkVersion
 
     defaultConfig {

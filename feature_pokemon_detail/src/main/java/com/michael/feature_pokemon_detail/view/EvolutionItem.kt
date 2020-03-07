@@ -1,6 +1,7 @@
 package com.michael.feature_pokemon_detail.view
 
 import android.view.View
+import androidx.core.content.ContextCompat
 import com.michael.data_source.model.Pokemon
 import com.michael.feature_pokemon_detail.R
 import com.michael.lib_core.ext.hide
@@ -44,7 +45,10 @@ class EvolutionItem(
                     viewRight.show()
                 }
                 if (item.isSelected) {
-                    llContent.background = resources.getDrawable(R.drawable.selected_evolution_border)
+                    llContent.background = ContextCompat.getDrawable(
+                        view.context,
+                        R.drawable.selected_evolution_border
+                    )
                 } else {
                     llContent.background = null
                 }

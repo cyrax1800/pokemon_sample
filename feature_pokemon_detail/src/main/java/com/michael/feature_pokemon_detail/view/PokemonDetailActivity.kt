@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TableRow
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.view.setPadding
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -168,11 +169,11 @@ class PokemonDetailActivity : BaseActivity(), PokemonDetailContract.View {
         val textTitle = TextView(this)
         textTitle.text = stats.stat.name.replace("-", " ").capitalize()
         textTitle.setPadding(paddingValue)
-        textTitle.background = resources.getDrawable(R.drawable.table_border)
+        textTitle.background = ContextCompat.getDrawable(this, R.drawable.table_border)
         val textValue = TextView(this)
         textValue.text = stats.baseStat.toString()
         textValue.setPadding(paddingValue)
-        textValue.background = resources.getDrawable(R.drawable.table_border)
+        textValue.background = ContextCompat.getDrawable(this, R.drawable.table_border)
 
         row.addView(textTitle)
         row.addView(textValue)
