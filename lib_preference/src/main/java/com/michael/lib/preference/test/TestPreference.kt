@@ -1,11 +1,14 @@
-package com.michael.lib.preference
+package com.michael.lib.preference.test
 
 import android.content.SharedPreferences
 
 class TestPreference : SharedPreferences {
 
     private val preferenceMap = HashMap<String, Any>()
-    private val preferenceEditor = TestPreferenceEditor(preferenceMap)
+    private val preferenceEditor =
+        TestPreferenceEditor(
+            preferenceMap
+        )
 
     override fun getBoolean(key: String?, defValue: Boolean): Boolean {
         return preferenceMap[key] as? Boolean ?: defValue
