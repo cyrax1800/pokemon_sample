@@ -1,7 +1,8 @@
 final coveredModules = subprojects.findAll {
     final moduleName = it.name
     final isFeatureModule = moduleName.startsWith("feature_")
-    isFeatureModule
+    final isLib = moduleName.startsWith("lib_")
+    isFeatureModule || isLib
 }
 
 // Configure all project base on coveredModules
