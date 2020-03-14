@@ -155,8 +155,8 @@ object FastAdapter {
 
 object Debugging {
     val fbFlipper = "com.facebook.flipper:flipper:${Version.fbFlipper}"
-    val fbFlipperNetwork = "com.facebook.flipper:flipper-network-plugin:${Version.fbFlipper}"
     val fbFlipperNoop = "com.facebook.flipper:flipper-noop:${Version.fbFlipper}"
+    val fbFlipperNetwork = "com.facebook.flipper:flipper-network-plugin:${Version.fbFlipper}"
     val soLoader = "com.facebook.soloader:soloader:${Version.soLoader}"
     val fbFlipperLeakCanary = "com.facebook.flipper:flipper-leakcanary-plugin:${Version.fbFlipper}"
     val leakCanary = "com.squareup.leakcanary:leakcanary-android:${Version.leakCanary}"

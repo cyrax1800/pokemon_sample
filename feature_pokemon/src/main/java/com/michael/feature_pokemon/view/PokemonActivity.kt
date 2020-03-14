@@ -129,9 +129,4 @@ class PokemonActivity : BaseMVIActivity<PokemonState>() {
             .build()
             .inject(this)
     }
-
-    override fun onDestroy() {
-        viewModel.clear()
-        super.onDestroy()
-    }
 }

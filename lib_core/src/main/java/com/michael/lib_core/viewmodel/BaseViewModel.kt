@@ -15,7 +15,7 @@ abstract class BaseViewModel(private val baseDispatcher: SchedulerProvider): Vie
     override val coroutineContext: CoroutineContext
         get() = baseDispatcher.ui() + supervisorJob
 
-    open fun clear() {
+    override fun onCleared() {
         if (isActive && !supervisorJob.isCancelled) {
             supervisorJob.children.map {
                 it.cancel()

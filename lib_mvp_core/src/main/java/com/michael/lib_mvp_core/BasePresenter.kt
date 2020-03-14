@@ -3,13 +3,8 @@ package com.michael.lib_mvp_core
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
-import androidx.lifecycle.ViewModel
 import com.michael.lib_core.thread.SchedulerProvider
 import com.michael.lib_core.viewmodel.BaseViewModel
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.isActive
-import kotlin.coroutines.CoroutineContext
 
 abstract class BasePresenter<V : BaseContract.View>(baseDispatcher: SchedulerProvider) :
     BaseViewModel(baseDispatcher), BaseContract.Presenter<V>, LifecycleObserver {
@@ -26,7 +21,6 @@ abstract class BasePresenter<V : BaseContract.View>(baseDispatcher: SchedulerPro
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     fun onViewDestroyed() {
-        clear()
         view = null
         viewLifecycle = null
     }

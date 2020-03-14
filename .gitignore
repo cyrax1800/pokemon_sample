@@ -21,3 +21,4 @@
 /buildSrc/out
 /buildSrc/subprojects/*/*.iml
 /buildSrc/subprojects/*/out
+/app/release/*
