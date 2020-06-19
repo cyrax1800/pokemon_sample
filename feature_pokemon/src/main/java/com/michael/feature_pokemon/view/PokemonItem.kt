@@ -19,12 +19,10 @@ class PokemonItem(var namedApiResource: NamedApiResource) :
         return ViewHolder(v)
     }
 
-    class ViewHolder(val view: View) : FastAdapter.ViewHolder<PokemonItem>(view) {
+    class ViewHolder(private val view: View) : FastAdapter.ViewHolder<PokemonItem>(view) {
         override fun bindView(item: PokemonItem, payloads: MutableList<Any>) {
             with(view) {
-                tvName.text = view.context.getString(R.string.pokemon_asdf_string)
-                tvName.text = view.context.getString(R.string.core_test)
-//                tvName.text = item.namedApiResource.name.capitalize()
+                tvName.text = item.namedApiResource.name.capitalize()
             }
         }
 

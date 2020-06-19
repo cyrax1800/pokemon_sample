@@ -50,12 +50,20 @@ class PokemonMVIViewModel @Inject constructor(
                 isPtrRefresh = true
             )
             is PokemonMVIEffect.Load -> currentState.copy(
-                pokemonList = ResultState.Loading
+                isLoading = true
             )
-            is PokemonMVIEffect.FetchPokemonList -> currentState.copy(
-                pokemonList = effect.result,
-                offset = effect.offset,
-                isPtrRefresh = false
+            is PokemonMVIEffect.FetchPokemonList -> {
+                currentState.copy(
+                    pokemonList = effect.result,
+                    isLoading = false,
+                    offset = effect.offset,
+                    isPtrRefresh = false
+                )
+            }
+            is PokemonMVIEffect.FetchPokemonError -> currentState.copy(
+                isLoading = false,
+                isPtrRefresh = false,
+                errorMessage = effect.message
             )
         }
     }
@@ -67,10 +75,22 @@ class PokemonMVIViewModel @Inject constructor(
             val result = useCase.getPokemonList(LIMIT, offset)
             withContext(Dispatchers.Main) {
                 FetchingIdlingResource.complete()
-                state.value = reducer(
-                    PokemonMVIEffect.FetchPokemonList(result, offset + LIMIT),
-                    currentState
-                )
+                if (result is ResultState.Success) {
+                    val list = if (offset == 0) {
+                        result.data.results
+                    } else {
+                        state.value!!.pokemonList + result.data.results
+                    }
+                    state.value = reducer(
+                        PokemonMVIEffect.FetchPokemonList(list, offset + LIMIT),
+                        currentState
+                    )
+                } else if (result is ResultState.Error) {
+                    state.value = reducer(
+                        PokemonMVIEffect.FetchPokemonError(result.error),
+                        currentState
+                    )
+                }
             }
         }
     }

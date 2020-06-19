@@ -1,5 +1,6 @@
 package com.michael.feature_pokemon_abilities.view
 
+import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -28,7 +29,7 @@ class PokemonAbilitiesActivity : BaseActivity() {
     override val contentView: Int
         get() = R.layout.activity_pokemon_abilities
 
-    override fun initView() {
+    override fun initView(savedInstanceState: Bundle?) {
         viewModel = ViewModelProviders
             .of(this, viewModelFactory)
             .get(PokemonAbilitiesViewModel::class.java)

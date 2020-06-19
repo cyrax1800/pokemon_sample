@@ -25,6 +25,7 @@ dependencies {
     implementation FastAdapter.core
     implementation FastAdapter.scroll
     implementation FastAdapter.ui
+    implementation FastAdapter.diff
 
     implementation Misc.deeplink
     kapt Misc.deeplinkProcessor

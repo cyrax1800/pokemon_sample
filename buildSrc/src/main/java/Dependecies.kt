@@ -151,6 +151,7 @@ object FastAdapter {
     val core = "com.mikepenz:fastadapter:${Version.fastAdapter}"
     val scroll = "com.mikepenz:fastadapter-extensions-scroll:${Version.fastAdapter}"
     val ui = "com.mikepenz:fastadapter-extensions-ui:${Version.fastAdapter}"
+    val diff = "com.mikepenz:fastadapter-extensions-diff:${Version.fastAdapter}"
 }
 
 object Debugging {

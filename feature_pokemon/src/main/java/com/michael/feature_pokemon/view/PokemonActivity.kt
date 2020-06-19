@@ -1,10 +1,12 @@
 package com.michael.feature_pokemon.view
 
 import android.content.Intent
+import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.michael.api.responses.ResultState
@@ -39,23 +41,27 @@ class PokemonActivity : BaseMVIActivity<PokemonState>() {
     private val footerAdapter = GenericItemAdapter()
 
     override fun render(state: PokemonState) {
-        when (state.pokemonList) {
-            is ResultState.Loading -> {
+        when {
+            state.isLoading -> {
                 if (state.offset == 0 && !state.isPtrRefresh) {
                     progress_bar.show()
                 }
             }
-            is ResultState.Success -> {
+            state.errorMessage.isNullOrBlank().not() -> {
+                swipeRefreshLayout.isRefreshing = false
+                toast(state.errorMessage)
+            }
+            else -> {
                 swipeRefreshLayout.isRefreshing = false
                 progress_bar.hide()
                 footerAdapter.clear()
-                state.pokemonList.data.results.forEach {
-                    items.add(PokemonItem(it))
+                val newList = arrayListOf<PokemonItem>()
+                state.pokemonList.forEach {
+                    newList.add(PokemonItem(it).apply {
+                        identifier = it.name.hashCode().toLong()
+                    })
                 }
-            }
-            is ResultState.Error -> {
-                swipeRefreshLayout.isRefreshing = false
-                toast(state.pokemonList.error)
+                items.setNewList(newList)
             }
         }
     }
@@ -63,7 +69,7 @@ class PokemonActivity : BaseMVIActivity<PokemonState>() {
     override val contentView: Int
         get() = R.layout.activity_container
 
-    override fun initView() {
+    override fun initView(savedInstanceState: Bundle?) {
         viewModel = ViewModelProviders
             .of(this, viewModelFactory)
             .get(PokemonMVIViewModel::class.java)
@@ -72,7 +78,18 @@ class PokemonActivity : BaseMVIActivity<PokemonState>() {
         initRecyclerView()
         initObserver()
 
-        viewModel.dispatch(PokemonMVIActions.LoadMore)
+        if (savedInstanceState == null) {
+            viewModel.dispatch(PokemonMVIActions.LoadMore)
+        } else {
+            if (savedInstanceState["orientation_change"] == false) {
+                viewModel.dispatch(PokemonMVIActions.LoadMore)
+            }
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putBoolean("orientation_change", true)
+        super.onSaveInstanceState(outState)
     }
 
     private fun initSwipeRefreshLayout() {

@@ -19,13 +19,13 @@ abstract class BaseActivity : AppCompatActivity(), CoroutineScope {
         get() = mainCompat + supervisorJob
 
     abstract val contentView: Int
-    abstract fun initView()
+    abstract fun initView(savedInstanceState: Bundle?)
     abstract fun initInjector()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(contentView)
         initInjector()
-        initView()
+        initView(savedInstanceState)
     }
 }

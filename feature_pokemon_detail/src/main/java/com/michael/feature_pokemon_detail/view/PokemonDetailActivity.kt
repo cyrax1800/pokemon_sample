@@ -1,6 +1,7 @@
 package com.michael.feature_pokemon_detail.view
 
 import android.content.Intent
+import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.ViewGroup
@@ -50,7 +51,7 @@ class PokemonDetailActivity : BaseActivity(), PokemonDetailContract.View {
     override val contentView: Int
         get() = R.layout.activity_pokemon_detail
 
-    override fun initView() {
+    override fun initView(savedInstanceState: Bundle?) {
         pokemonDetailPresenter = ViewModelProviders
             .of(this, viewModelFactory)
             .get(PokemonDetailPresenterImpl::class.java)

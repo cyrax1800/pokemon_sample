@@ -65,9 +65,9 @@ class PokemonMVIViewModelTest {
         verify {
             state.onChanged(capture(listValue))
         }
-        Assert.assertEquals(listValue.last().pokemonList.javaClass, returnValue.javaClass)
+        Assert.assertEquals(listValue.last().pokemonState.javaClass, returnValue.javaClass)
         Assert.assertEquals(
-            (listValue.last().pokemonList as ResultState.Error).error,
+            (listValue.last().pokemonState as ResultState.Error).error,
             returnValue.error
         )
     }
@@ -88,9 +88,9 @@ class PokemonMVIViewModelTest {
         verify {
             state.onChanged(capture(listValue))
         }
-        Assert.assertEquals(listValue.last().pokemonList.javaClass, returnValue.javaClass)
+        Assert.assertEquals(listValue.last().pokemonState.javaClass, returnValue.javaClass)
         Assert.assertEquals(
-            (listValue.last().pokemonList as ResultState.Success).data,
+            (listValue.last().pokemonState as ResultState.Success).data,
             returnValue.data
         )
     }
@@ -114,7 +114,7 @@ class PokemonMVIViewModelTest {
         verify {
             state.onChanged(capture(listValue))
         }
-        Assert.assertEquals(listValue.last().pokemonList.javaClass, returnValue.javaClass)
+        Assert.assertEquals(listValue.last().pokemonState.javaClass, returnValue.javaClass)
         Assert.assertEquals(listValue.last().offset, 40)
     }
 
@@ -137,7 +137,7 @@ class PokemonMVIViewModelTest {
         verify {
             state.onChanged(capture(listValue))
         }
-        Assert.assertEquals(listValue.last().pokemonList.javaClass, returnValue.javaClass)
+        Assert.assertEquals(listValue.last().pokemonState.javaClass, returnValue.javaClass)
         Assert.assertEquals(listValue.last().offset, 20)
     }
 
