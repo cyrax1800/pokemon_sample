@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">feature_pokemon_detail</string>
     <string name="pokemon_detail_height">Height: %1d</string>
     <string name="pokemon_detail_weight">Weight: %1d</string>
 </resources>

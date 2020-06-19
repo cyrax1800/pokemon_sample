@@ -15,7 +15,7 @@ object Releases {
 object Version {
     //common
     const val kotlin = "1.3.61"
-    const val gradle = "3.5.1"
+    const val gradle = "3.6.2"
     const val material = "1.1.0-alpha05"
     const val multiDex = "2.0.1"
 
@@ -62,7 +62,7 @@ object Version {
     const val mockTestRunner = "0.3.1"
     const val rules = "1.1.0"
     const val ext = "1.0.0"
-    const val jacoco = "0.8.3"
+    const val jacoco = "0.8.4"
 
     //debugging
     const val stetho = "1.5.1"
